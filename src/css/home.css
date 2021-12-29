@@ -1,0 +1,116 @@
+/* Home */
+
+/* Options */
+.options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5em;
+}
+
+.options .opt-part {
+    width: 100%;
+    padding: 0.45em;
+    border: 2px solid var(--clr-muted);
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.options .opt-part:first-child {
+    border-top-left-radius: 100vw;
+    border-bottom-left-radius: 100vw;
+}
+
+.options .opt-part:not(:first-child, :last-child) {
+    border-inline: 0;
+}
+
+.options .opt-part:last-child {
+    border-top-right-radius: 100vw;
+    border-bottom-right-radius: 100vw;
+}
+
+.options .opt-part .search-inpt {
+    font-size: var(--fs-450);
+    width: 90%;
+    height: 100%;
+    margin-inline: 1em;
+    transition: color 95ms ease-out;
+}
+
+.options .opt-part .slider-amt {
+    margin-left: 0.5em;
+}
+
+.options .opt-part .limit-slider {
+    width: 90%;
+}
+
+.options .opt-part .search-inpt:focus-visible {
+    color: var(--clr-secondary-light);
+}
+
+.options .opt-btn {
+    font-size: calc(var(--fs-450) * 0.85);
+    padding: 0.5em;
+}
+
+.options .opt-btn:hover {
+    background-color: var(--clr-muted);
+}
+
+/* Cats */
+.cats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    place-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5em;
+}
+
+.cats .cat {
+    position: relative;
+    width: 18rem;
+    max-width: 18rem;
+    max-height: 20rem;
+    border-radius: 6px;
+}
+
+.cats .cat::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: transparent;
+    border-radius: inherit;
+    transition: background-color 95ms ease-in-out;
+}
+
+.cats .cat:hover::after,
+.cats .cat.show::after {
+    background-color: rgba(0, 0, 0, 0.32);
+}
+
+.cats .cat.show .cat-img {
+    visibility: hidden;
+}
+
+.cats .cat-img {
+    aspect-ratio: 1;
+    width: 100%;
+    border-radius: inherit;
+}
+
+.cats .cat .cat-name {
+    position: absolute;
+    visibility: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    white-space: nowrap;
+    z-index: 999;
+}
+
+.cats .cat:hover .cat-name,
+.cats .cat.show .cat-name  {
+    visibility: visible;
+}

@@ -1,0 +1,38 @@
+/* Utils */
+.btn {
+    border: 0;
+    background-color: var(--clr-secondary);
+    width: 100%;
+    transition: background-color 90ms ease-out;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--clr-secondary-light);
+}
+
+.capsule {
+    border-radius: 100vw;
+}
+
+.cat-name.title {
+    font-size: var(--fs-500);
+    font-family: 'Fredoka One';
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Flex & Grid */
+.flex-align {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.flex-center {
+    justify-content: center;
+}
+
+.flex-col {
+    flex-direction: column;
+}

@@ -1,0 +1,55 @@
+/* Media queries */
+@media(prefers-color-scheme: dark) {
+    :root {
+        --txt: white;
+
+        --clr-primary: hsl(240, 4%, 10%);
+        --clr-muted: hsl(231, 6%, 20%);
+    }
+}
+
+@media(prefers-reduced-motion) {
+    :root {
+        --reduce: 0;
+    }
+
+    .overview .stat .stat-bar::after {
+        animation-duration: 1ms;
+    }
+}
+
+@media(max-width: 768px) {
+    /* Global */
+    :root {
+        --fs-400: 0.9rem;
+        --fs-450: 1rem;
+        --fs-500: 1.25rem;
+    }
+
+    /* Containers */
+    .main-container {
+        margin-inline: 1em;
+    }
+
+    /* Cats */
+    .cats {
+        row-gap: 10em;
+    }
+    
+    .cat .cat-img {
+        width: 95%;
+        margin-bottom: 0.25em;
+    } 
+
+    /* Overview */
+    .overview .desc-part {
+        grid-template-columns: 1fr;
+    }
+
+    .overview .extra-info {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Animations */

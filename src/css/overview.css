@@ -1,0 +1,137 @@
+.overview {
+    display: grid;
+    max-width: 1000px;
+    margin-inline: auto;
+    padding: 1em;
+    
+}
+
+.overview .back-btn {
+    width: max-content;
+    padding: 0.75em;
+    margin-block: 1em;
+    color: white;
+}
+
+.overview .desc-part {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75em;
+}
+
+.overview .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.overview .cat-img {
+    max-width: 28rem;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.overview .cat-name {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.overview .extra-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5em;
+    padding-block: 0.75em;
+    margin-top: auto;
+}
+
+.overview .origin {
+    font-weight: bold;
+}
+
+.overview .traits {
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
+}
+
+.overview .traits .trait {
+    font-size: calc(var(--fs-400) * 0.8);
+    padding: 0.25em;
+    background-color: var(--clr-muted);
+    border-radius: 6px;
+}
+
+.overview .stats {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-block: 2em;
+    gap: 2em;
+}
+
+.overview .stat {
+    position: relative;
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.overview .stat-name {
+    text-transform: capitalize;
+}
+
+.overview .stat-num {
+    position: absolute;
+    visibility: hidden;
+    color: white;
+    padding: 0.5em;
+    background-color: var(--clr-secondary);
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.overview .stat .stat-bar {
+    position: relative;
+    width: 8rem;
+    height: 1.75rem;
+    background-color: var(--clr-muted);
+    transition: background-color 10s ease-out;
+}
+
+.overview .stat .stat-bar::after {
+    --amt-g: calc(((var(--amt) * 20) * 1deg) - 230deg);
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: scaleX(0);
+    filter: hue-rotate(var(--amt-g));
+    perspective: 2px;
+    transform-origin: left;
+    background-color: var(--clr-secondary-light);
+    border-radius: inherit;
+    transition: transform calc(var(--amt) * 1s) ease-out;
+    animation: fillBar 2s linear forwards;
+}
+
+.overview .stat .stat-bar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    transition: background-color 95ms ease-out;
+    z-index: 999;
+}
+
+.overview .stat .stat-bar:hover::before {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Animations */
+@keyframes fillBar {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(calc((var(--amt) * 20) / 100));
+    }
+}
